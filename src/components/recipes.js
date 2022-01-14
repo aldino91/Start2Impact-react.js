@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { map } from "lodash";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRecipes, selectData } from "../store/slices/ListRecipes";
 import Link from "next/link";
@@ -25,7 +25,7 @@ export default function Recipes() {
 
   return (
     <div className="p-2">
-      <form onSubmit={onSubmit} className="">
+      <form onSubmit={onSubmit}>
         <div className="flex justify-center">
           <select
             onChange={changeParams}
@@ -52,10 +52,10 @@ export default function Recipes() {
       </form>
       <div className="grid w-auto grid-cols-2 gap-4 pt-5 md:grid-cols-3 lg:grid-cols-4">
         {map(list, (lista, i) => (
-          <Link href={`/recipes/${i}`} key={i}>
+          <Link href={`/recipes/${lista.id}`} key={i}>
             <a>
-              <div className="h-auto bg-white rounded-md shadow-lg">
-                <div className="p-2">
+              <ul className="h-auto bg-white rounded-md shadow-lg">
+                <li className="p-2">
                   <Image
                     src={`${lista.image}`}
                     alt={`Immagine${lista.title}`}
@@ -64,8 +64,8 @@ export default function Recipes() {
                     height={100}
                   />
                   <p className="overflow-hidden text-xs font-light text-center lg:text-xl">{`${lista.title}`}</p>
-                </div>
-              </div>
+                </li>
+              </ul>
             </a>
           </Link>
         ))}

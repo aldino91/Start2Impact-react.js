@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-// REDUX
+
 
 import { Layout } from "../src/components/layout";
 

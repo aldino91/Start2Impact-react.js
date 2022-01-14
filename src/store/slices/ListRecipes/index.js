@@ -4,7 +4,7 @@ export const fetchRecipes = createAsyncThunk(
   "recipes/getRecipes",
   async (params) => {
     return fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?query=${params}&diet=vegetarian&fillIngredients=true&addRecipeInformation=true&number=100&apiKey=${process.env.NEXT_PUBLIC_API_KEY_2}`
+      `https://api.spoonacular.com/recipes/complexSearch?query=${params}&diet=vegetarian&number=100&apiKey=${process.env.NEXT_PUBLIC_API_KEY_2}`
     )
       .then((response) => {
         if (!response.ok) throw Error(response.statusText);
