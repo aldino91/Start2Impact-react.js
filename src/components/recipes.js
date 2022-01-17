@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { map } from "lodash";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRecipes, selectData } from "../store/slices/ListRecipes";
 import Link from "next/link";
@@ -16,6 +17,7 @@ export default function Recipes() {
 
   function onSubmit(e) {
     e.preventDefault();
+
     dispatch(fetchRecipes(params));
   }
 
@@ -50,6 +52,7 @@ export default function Recipes() {
           </button>
         </div>
       </form>
+
       <div className="grid w-auto grid-cols-2 gap-4 pt-5 md:grid-cols-3 lg:grid-cols-4">
         {map(list, (lista, i) => (
           <Link href={`/recipes/${lista.id}`} key={i}>

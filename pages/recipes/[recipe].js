@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import InfoRecipe from "../../src/components/inforecipe/InfoRecipe";
 import axios from "axios";
 
+
 export default function Recipe() {
   const { query } = useRouter();
   const { recipe } = query;
