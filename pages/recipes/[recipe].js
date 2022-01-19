@@ -11,7 +11,7 @@ export default function Recipe() {
     (async () => {
       try {
         const response = await axios(
-          `https://api.spoonacular.com/recipes/${recipe}/information?fillIngredients=true&analyzeInstructions&apiKey=${process.env.NEXT_PUBLIC_API_KEY_1}`
+          `https://api.spoonacular.com/recipes/${recipe}/information?fillIngredients=true&analyzeInstructions&apiKey=${process.env.NEXT_PUBLIC_API_KEY_2}`
         );
         return (
           setData(response.data),
